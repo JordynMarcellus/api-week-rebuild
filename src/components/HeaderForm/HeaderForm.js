@@ -1,11 +1,27 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
-import { Actions } from 'jumpstate'
+import { Actions, dispatch } from 'jumpstate'
+import '../../state/effects.js'
 
 class HeaderForm extends Component {
+
+    constructor() {
+        super()
+
+        this.handleSubmit = this.handleSubmit.bind(this)
+
+    }
+
+    handleSubmit(event) {
+        // since we're submitting :\
+        event.preventDefault();
+        dispatch( Actions.getBandAlbumInfo(this.props.bandName) );
+    }
+
     render() {
         return (
-            <form onChange={(event) => Actions.updateBandName(event.target.value)}>
+            <form onChange={(event) => dispatch( Actions.updateBandName( event.target.value ) )} onSubmit={ (event) => this.handleSubmit(event) } >
+                { console.log(Actions) }
                 <label> Enter a bandname</label>
                 <input type="text" />
                 <p>{ this.props.bandName }</p>
@@ -15,9 +31,10 @@ class HeaderForm extends Component {
 }
 
 export default connect( state => {
-    console.log(state)
+
     return {
         bandName: state.formData.bandName,
         changeBandName: state.formData.updateBandName
     }
+
 })(HeaderForm)

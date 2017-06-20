@@ -13,5 +13,5 @@ export default State({
 
     resetForm(state, payload) {
         return { bandName: "" }
-    }
+    },
 });
