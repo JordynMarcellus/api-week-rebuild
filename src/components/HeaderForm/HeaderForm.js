@@ -15,13 +15,13 @@ class HeaderForm extends Component {
     handleSubmit(event) {
         // since we're submitting :\
         event.preventDefault();
-        dispatch( Actions.getBandAlbumInfo(this.props.bandName) );
+        
+        Actions.getBandAlbumInfo(this.props.bandName);
     }
 
     render() {
         return (
             <form onChange={(event) => dispatch( Actions.updateBandName( event.target.value ) )} onSubmit={ (event) => this.handleSubmit(event) } >
-                { console.log(Actions) }
                 <label> Enter a bandname</label>
                 <input type="text" />
                 <p>{ this.props.bandName }</p>
