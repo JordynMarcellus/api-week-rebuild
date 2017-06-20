@@ -6,8 +6,9 @@ export default State({
     },
 
     updateBandName(state, payload) {
-        console.log("boop")
-        return { bandName: "bandName"}
+        // console.log(state)
+        console.log(payload)
+        return { bandName: payload}
     },
 
     resetForm(state, payload) {
