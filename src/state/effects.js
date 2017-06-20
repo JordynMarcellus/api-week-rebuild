@@ -1,13 +1,20 @@
 import { Effect, Actions } from 'jumpstate';
 import axios from 'axios';
 
-export default Effect('getBandAlbumInfo', (payload) => {
+export default Effect('getBandAlbumInfo', (payload) => { 
 
-    Actions.albumDataLoading(true);
+        console.log(payload);
 
-    axios.get(`https://api.discogs.com/database/search?${payload}`)
-        .then( res => {
-                Actions.addAlbumData(res.data)
+        Actions.albumDataLoading(true);
+
+        axios.get(`https://api.discogs.com/database/search?${payload}`)
+            .then( res => {
+                return res.data
             })
-        .catch( err => Actions.AlbumDataFetchError(err) )
+            .then( returnedData => {
+                return setTimeout( () =>  Actions.addAlbumData(returnedData), 100) 
+            })
+            .catch( err => Actions.albumDataFetchError(err) )
+
+    
 });
