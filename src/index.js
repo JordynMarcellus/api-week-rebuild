@@ -10,14 +10,14 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { CreateJumpstateMiddleware } from 'jumpstate';
 import formState from './state/forms.js';
-import albumState from './state/album-info.js';
+import searchState from './state/search-info.js';
 
 import './index.css';
 
 const reducers = {
     //as we add more state stuff we can add stuff here
     formData: formState,
-    albumData: albumState
+    searchData: searchState
 }
 
 const rootReducer = combineReducers(reducers);

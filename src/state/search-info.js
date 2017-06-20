@@ -3,23 +3,23 @@ import { State } from 'jumpstate'
 export default State({
 
     initial: {
-        albumData: [],
+        searchData: [],
         loading: false,
         error: false
     },
-    addAlbumData(state, albumResponse) {
+    addSearchData(state, searchResponse) {
         return Object.assign({}, state, {
             // will that even work???
             // it should! 
-            albumData: state.albumData.concat(albumResponse)
+            searchData: state.searchData.concat(searchResponse)
         })
     },
-    albumDataLoading(state, loadingStatus) {
+    searchDataLoading(state, loadingStatus) {
         return Object.assign({}, state, {
             loading: loadingStatus
         })
     },
-    albumDataFetchError(state, error) {
+    searchDataFetchError(state, error) {
         return Object.assign({}, state, {
             error: error
         });

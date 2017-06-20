@@ -15,8 +15,8 @@ class HeaderForm extends Component {
     handleSubmit(event) {
         // since we're submitting :\
         event.preventDefault();
-        
-        Actions.getBandAlbumInfo(this.props.bandName);
+        let transformedBandName = this.props.bandName.replace(/\s/, "+")
+        Actions.getBandSearchInfo(transformedBandName);
     }
 
     render() {

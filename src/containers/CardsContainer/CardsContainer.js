@@ -29,6 +29,6 @@ class CardsContainer extends Component {
 
 export default connect( state => {
     return {
-        albumsForDisplay: state.albumData.albumData
+        albumsForDisplay: state.searchData.searchData
     }
  })(CardsContainer);
