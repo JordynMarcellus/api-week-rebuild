@@ -13,7 +13,7 @@ class CardsContainer extends Component {
             <section>
 
                 {
-                    this.props.albumsForDisplay !== 0 ? <Spinner></Spinner> :
+                    this.props.albumsForDisplay !== 0 ? null :
                         this.props.albumsForDisplay.map( (album, index) => {
                             return <AlbumCard key={index}></AlbumCard>
                     })
