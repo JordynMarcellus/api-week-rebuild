@@ -9,8 +9,7 @@ export default Effect('getBandSearchInfo', (payload) => {
         axios.get(`https://api.discogs.com/database/search?key=${apiInfo.key}&secret=${apiInfo.secret}&q=${payload}&artist`)
             .then( res => {
                 return res.data
-            })
-            .then( returnedData => {
+            }).then( returnedData => {
                 Actions.addSearchData(returnedData)
             })
             .catch( err => Actions.searchDataFetchError(err) )

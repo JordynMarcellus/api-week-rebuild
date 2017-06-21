@@ -10,10 +10,14 @@ export default State({
     },
     addSearchData(state, searchResponse) {
 
+        let filteredData = searchResponse.results.filter( searchResult => {
+            return searchResult.type === "artist"
+        });
+
         return Object.assign({}, state, {
             // will that even work???
             // it did :3
-            searchData: state.searchData.concat(searchResponse.results),
+            searchData: state.searchData.concat(filteredData),
             pagination: searchResponse.pagination,
             loading: false
         })

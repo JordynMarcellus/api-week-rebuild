@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
+
 
 class ArtistBlurb extends Component {
 
@@ -6,8 +8,10 @@ class ArtistBlurb extends Component {
         return(
 
             <section className="artistBlurb">
+                <img src={ this.props.artistInfo.thumb === "https://api-img.discogs.com/images/warning.png" ? "http://via.placeholder.com/150x150" : this.props.artistInfo.thumb  } />
+                <Link to=""> {this.props.artistInfo.title} </Link>
 
-                <p> { this.props.artistInfo.title } </p>
+                { console.log(this.props) }
 
             </section>
 

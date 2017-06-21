@@ -9,7 +9,7 @@ class HeaderForm extends Component {
         super()
 
         this.handleSubmit = this.handleSubmit.bind(this)
-
+        this.resetSearch = this.resetSearch.bind(this)
     }
 
     handleSubmit(event) {
@@ -20,7 +20,9 @@ class HeaderForm extends Component {
     }
 
     resetSearch(event) {
-        //we need to prevent default or this is going to submit. i am sure of it.
+        event.preventDefault();
+        
+        Actions.resetSearch();
     }
 
     render() {
@@ -31,7 +33,7 @@ class HeaderForm extends Component {
                     <input type="text" className="header-form__text-input" id="band-search" />
                     <button className="submitter" > Submit </button>
                 </form>
-                <button className onClick={(event) => Actions.resetSearch() }> Reset </button>
+                <button className onClick={(event) => this.resetSearch(event) }> Reset </button>
             </header>
         )
     }
