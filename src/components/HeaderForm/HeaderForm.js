@@ -19,13 +19,20 @@ class HeaderForm extends Component {
         Actions.getBandSearchInfo(transformedBandName);
     }
 
+    resetSearch(event) {
+        //we need to prevent default or this is going to submit. i am sure of it.
+    }
+
     render() {
         return (
-            <form onChange={(event) => dispatch( Actions.updateBandName( event.target.value ) )} onSubmit={ (event) => this.handleSubmit(event) } >
-                <label> Enter a bandname</label>
-                <input type="text" />
-                <p>{ this.props.bandName }</p>
-            </form>
+            <header>
+                <form className="header-form__form-element" onChange={(event) => dispatch( Actions.updateBandName( event.target.value ) )} onSubmit={ (event) => this.handleSubmit(event) } >
+                    <label htmlFor="band-search"> Enter a bandname</label>
+                    <input type="text" className="header-form__text-input" id="band-search" />
+                    <button className="submitter" > Submit </button>
+                </form>
+                <button className onClick={(event) => Actions.resetSearch() }> Reset </button>
+            </header>
         )
     }
 }

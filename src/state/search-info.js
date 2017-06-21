@@ -9,6 +9,7 @@ export default State({
         error: false
     },
     addSearchData(state, searchResponse) {
+
         return Object.assign({}, state, {
             // will that even work???
             // it did :3
