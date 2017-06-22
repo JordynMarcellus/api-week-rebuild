@@ -6,28 +6,21 @@ export default State({
         artistData: {},
         artistName: "",
         artistID: null,
-        // pagination: {},
         loading: false,
         error: false
     },
     addArtistData(state, searchResponse) {
+        console.log(searchResponse)
         return Object.assign({}, state, {
             // will that even work???
             // it did :3
             artistData: searchResponse,
-            pagination: searchResponse.pagination,
-            loading: false
+            artistName: searchResponse.name,
+            artistID: searchResponse.id,
+            loading: false,
+
         })
     },
-    receiveArtistInfo(state, payload) {
-
-        return Object.assign({}, state, {
-
-            artistName: payload.artistName,
-            artistID: payload.artistId
-        });
-    },
-
     artistDataLoading(state, loadingStatus) {
         return Object.assign({}, state, {
             loading: loadingStatus

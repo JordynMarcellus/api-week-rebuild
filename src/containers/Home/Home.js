@@ -18,6 +18,7 @@ class Home extends Component {
 }
 
 export default connect( state => {
+    console.log(state)
     return {
         searchData: state.searchData.searchData,
         pagination: state.searchData.pagination,

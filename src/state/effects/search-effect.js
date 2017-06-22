@@ -11,7 +11,15 @@ export default Effect('getBandSearchInfo', (payload) => {
             return res.data
         }).then( returnedData => {
             console.log(returnedData);
-            Actions.addSearchData(returnedData)
+
+            Actions.addSearchPaginationData(returnedData.pagination);
+            // we can make this more dynamic later...
+
+            let filteredData = returnedData.results.filter( searchResult => {
+                return searchResult.type === "artist"
+            });
+
+            Actions.addSearchData(filteredData)
         })
         .catch( err => Actions.searchDataFetchError(err) )
 });
