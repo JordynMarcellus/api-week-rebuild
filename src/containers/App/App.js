@@ -3,6 +3,7 @@ import './App.css';
 import {Switch, BrowserRouter as Router, Route} from 'react-router-dom';
 // import CardsContainer from '../CardsContainer/CardsContainer';
 import Home from '../Home/Home';
+import ArtistPage from '../ArtistPage/ArtistPage'
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Home}></Route>
+            <Route path="/artist/:artistId" component={ArtistPage}></Route>
           </Switch>
         </Router>
       </div>

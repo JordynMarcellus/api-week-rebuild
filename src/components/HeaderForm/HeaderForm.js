@@ -20,9 +20,10 @@ class HeaderForm extends Component {
     }
 
     resetSearch(event) {
+
         event.preventDefault();
-        
         Actions.resetSearch();
+
     }
 
     render() {
@@ -34,6 +35,7 @@ class HeaderForm extends Component {
                     <button className="submitter" > Submit </button>
                 </form>
                 <button className onClick={(event) => this.resetSearch(event) }> Reset </button>
+                { this.props.searchData.length !== 0 ? <h1> Here's what we found... </h1> : <h1> Please enter an artist! </h1>  }
             </header>
         )
     }
@@ -43,7 +45,8 @@ export default connect( state => {
 
     return {
         bandName: state.formData.bandName,
-        changeBandName: state.formData.updateBandName
+        changeBandName: state.formData.updateBandName,
+        searchData: state.searchData.searchData,
     }
 
 })(HeaderForm)
