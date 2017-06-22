@@ -1,7 +1,7 @@
-import React, { Component} from 'react'
-import { connect } from 'react-redux'
-import { Actions, dispatch } from 'jumpstate'
-import '../../state/effects.js'
+import React, { Component} from 'react';
+import { connect } from 'react-redux';
+import { Actions, dispatch } from 'jumpstate';
+import '../../state/effects/search-effect.js';
 
 class HeaderForm extends Component {
 

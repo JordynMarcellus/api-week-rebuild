@@ -11,13 +11,16 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { CreateJumpstateMiddleware } from 'jumpstate';
 import formState from './state/forms.js';
 import searchState from './state/search-info.js';
+import artistState from './state/artist-info.js';
 
 import './index.css';
 
 const reducers = {
+
     //as we add more state stuff we can add stuff here
     formData: formState,
-    searchData: searchState
+    searchData: searchState,
+    artistData: artistState
 }
 
 const rootReducer = combineReducers(reducers);
