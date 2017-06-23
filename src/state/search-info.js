@@ -32,7 +32,8 @@ export default State({
             error: error
         });
     },
-    resetSearch(state, newState) {
+    resetSearch(state) {
+        console.log("clearing search")
         // okay so I thiiiink this is probz the best way???? https://stackoverflow.com/questions/39456184/clearing-an-array-state-in-redux
         return Object.assign({}, state, {
             searchData: [],

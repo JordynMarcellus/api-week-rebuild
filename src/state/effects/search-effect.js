@@ -10,7 +10,6 @@ export default Effect('getBandSearchInfo', (payload) => {
         .then( res => {
             return res.data
         }).then( returnedData => {
-            console.log(returnedData);
 
             Actions.addSearchPaginationData(returnedData.pagination);
             // we can make this more dynamic later...

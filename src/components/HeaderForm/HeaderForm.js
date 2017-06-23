@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
-import { Actions, dispatch } from 'jumpstate';
+import { Actions } from 'jumpstate';
 import '../../state/effects/search-effect.js';
 
 class HeaderForm extends Component {
@@ -13,8 +13,11 @@ class HeaderForm extends Component {
     }
 
     handleSubmit(event) {
-        // since we're submitting :\
         event.preventDefault();
+        
+        if (this.props.searchData.length !== 0) {
+            Actions.resetSearch();
+        }
         let transformedBandName = this.props.bandName.replace(/\s/, "+")
         Actions.getBandSearchInfo(transformedBandName);
     }
@@ -29,7 +32,7 @@ class HeaderForm extends Component {
     render() {
         return (
             <header>
-                <form className="header-form__form-element" onChange={(event) => dispatch( Actions.updateBandName( event.target.value ) )} onSubmit={ (event) => this.handleSubmit(event) } >
+                <form className="header-form__form-element" onChange={(event) => Actions.updateBandName( event.target.value ) } onSubmit={ (event) => this.handleSubmit(event) } >
                     <label htmlFor="band-search"> Enter a bandname</label>
                     <input type="text" className="header-form__text-input" id="band-search" />
                     <button className="submitter" > Submit </button>
