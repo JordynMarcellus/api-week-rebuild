@@ -1,6 +1,5 @@
 'use strict';
 
-const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,6 +10,15 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+
+// postCSS plgugins
+const autoprefixer = require('autoprefixer');
+const rucksack = require('rucksack-css');
+const lost = require('lost');
+
+//stylus plugins/mixin libs
+const axis = require('axis');
+const rupture = require('rupture');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -136,7 +144,7 @@ module.exports = {
         exclude: [
           /\.html$/,
           /\.(js|jsx)$/,
-          /\.css$/,
+          /\.styl$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -178,15 +186,10 @@ module.exports = {
       // In production, we use a plugin to extract that CSS to a file, but
       // in development "style" loader enables hot editing of CSS.
       {
-        test: /\.css$/,
+        test: /\.styl$/,
         use: [
           require.resolve('style-loader'),
-          {
-            loader: require.resolve('css-loader'),
-            options: {
-              importLoaders: 1,
-            },
-          },
+          require.resolve('css-loader'),
           {
             loader: require.resolve('postcss-loader'),
             options: {
@@ -202,7 +205,16 @@ module.exports = {
                   ],
                   flexbox: 'no-2009',
                 }),
+                lost(),
+                rucksack()
               ],
+            },
+          },
+          {
+            loader: require.resolve('stylus-loader'),
+            options: {
+              use: [ axis(), rupture() ],
+              sourceMap: false
             },
           },
         ],

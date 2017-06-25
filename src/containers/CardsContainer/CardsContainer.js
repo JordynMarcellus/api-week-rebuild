@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import AlbumCard from '../../components/AlbumCard/AlbumCard';
 import Spinner from '../../components/Spinner/Spinner';
 
-import './CardsContainer.css'
+import './CardsContainer.styl'
 
 class CardsContainer extends Component {
 

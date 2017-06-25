@@ -13,7 +13,7 @@ import formState from './state/forms.js';
 import searchState from './state/search-info.js';
 import artistState from './state/artist-info.js';
 
-import './index.css';
+import './index.styl';
 
 const reducers = {
 
