@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Music Searcher",
+  "name": "Discogs Music Searcher",
   "icons": [
     {
       "src": "favicon.ico",

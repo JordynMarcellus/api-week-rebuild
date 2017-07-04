@@ -1,6 +1,9 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import { Actions } from 'jumpstate';
+
+import './HeaderForm.styl';
+
 import '../../state/effects/search-effect.js';
 
 class HeaderForm extends Component {
@@ -31,14 +34,15 @@ class HeaderForm extends Component {
 
     render() {
         return (
-            <header>
+            <header className="header-form">
+                <h1> Discography at a glance </h1>
                 <form className="header-form__form-element" onChange={(event) => Actions.updateBandName( event.target.value ) } onSubmit={ (event) => this.handleSubmit(event) } >
-                    <label htmlFor="band-search"> Enter a bandname</label>
+                    <label htmlFor="band-search"> Please enter a musician or musical group!</label>
                     <input type="text" className="header-form__text-input" id="band-search" />
-                    <button className="submitter" > Submit </button>
+                    <button className="btn submit-btn" type="submit" > Submit </button>
+                    <button className="btn reset-btn" type="reset" onClick={(event) => this.resetSearch(event) }> Reset </button>
                 </form>
-                <button className onClick={(event) => this.resetSearch(event) }> Reset </button>
-                { this.props.searchData.length !== 0 ? <h1> Here's what we found... </h1> : <h1> Please enter an artist! </h1>  }
+                { this.props.searchData.length !== 0 ? <h2> Here's what we found... </h2> : null  }
             </header>
         )
     }

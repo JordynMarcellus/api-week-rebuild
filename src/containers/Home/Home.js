@@ -8,10 +8,10 @@ class Home extends Component {
 
     render() {
         return(
-            <section>
+            <div>
                 <HeaderForm></HeaderForm>
                 { this.props.searchData.length !== 0 ? this.props.searchData.map( (artist, index) => { return <ArtistBlurb key={ index } artistInfo={artist}></ArtistBlurb> }) : <Spinner></Spinner> }
-            </section>
+            </div>
         )
     }
 
