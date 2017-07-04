@@ -8,22 +8,41 @@ import '../../state/effects/artist-page-effect.js';
 //So: let's make a new reducer for artists. We already knew we were gonna need that! 
 
 class ArtistPage extends Component {
+    constructor() {
+        super()
+        this.returnCopy = this.returnCopy.bind(this);
+    }
 
     componentDidMount() {
 
         Actions.getBandInfo(this.props.match.params.artistId)
 
     }
+    
+    returnCopy(portfolioProps) {
+        
+        if (portfolioProps === undefined) {
+            return null
+        }
+        //this regex is meant to take the return statements inside of the JSON and actually implement a break tag in there. BAD API DATA!!!
+        //ripped from this stack overflow https://stackoverflow.com/questions/21572938/what-is-the-character-in-chrome-console
+        let portfolioString = portfolioProps.replace(/(\r\n|\n|\r)/gm, "<br />");
+        return portfolioString
+
+    };
 
     render() {
         return(
-            <div>
-
+            <section className="artist-info">
                 <h1>{this.props.artistData.artistName}</h1>
+                     
+                    <aside className="artist-portfolio collapsed-portfolio"> 
+                    {
+                        this.props.artistData.artistData.profile === "" ? <p>no profile</p> : <p dangerouslySetInnerHTML={{ __html: this.returnCopy(this.props.artistData.artistData.profile)}}></p>
+                    } 
+                    </aside>
 
-                <p> {this.props.artistData.artistData.profile === "" ? "no profile" : this.props.artistData.artistData.profile } </p>
-
-            </div>
+            </section>
         )
     }
 

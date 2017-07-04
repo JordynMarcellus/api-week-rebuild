@@ -10,7 +10,7 @@ class CardsContainer extends Component {
     render() {
 
         return(
-            <section>
+            <section className="cards-container">
 
                 {
                     this.props.albumsForDisplay !== 0 ? null :
