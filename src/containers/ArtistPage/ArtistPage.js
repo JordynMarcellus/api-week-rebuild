@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {Actions} from 'jumpstate';
+
 import '../../state/effects/artist-page-effect.js';
 
 // soo this is a stateful component. It has to be a stateful component!
@@ -48,11 +49,10 @@ class ArtistPage extends Component {
 }
 
 export default connect( state => {
-
     return {
 
-        artistData: state.artistData
-
+        artistData: state.artistData,
+        releaseData: state.releasesData
     }
 
 })(ArtistPage);

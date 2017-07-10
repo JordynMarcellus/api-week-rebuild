@@ -9,9 +9,12 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { CreateJumpstateMiddleware } from 'jumpstate';
+
 import formState from './state/forms.js';
 import searchState from './state/search-info.js';
 import artistState from './state/artist-info.js';
+import releasesData from './state/artist-releases.js';
+
 
 import './index.styl';
 
@@ -20,7 +23,9 @@ const reducers = {
     //as we add more state stuff we can add stuff here
     formData: formState,
     searchData: searchState,
-    artistData: artistState
+    artistData: artistState,
+    releasesData: releasesData
+
 }
 
 const rootReducer = combineReducers(reducers);

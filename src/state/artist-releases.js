@@ -8,11 +8,9 @@ export default State({
     },
 
     addArtistReleases(state, releaseResponse) {
-
         return Object.assign({}, state, {
-            releaseData: releaseResponse,
+            releaseData: releaseResponse.releases,
             loading: false
-
         })
 
     },
