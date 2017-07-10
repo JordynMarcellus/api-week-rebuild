@@ -16,7 +16,6 @@ class ArtistPage extends Component {
     componentDidMount() {
 
         Actions.getBandInfo(this.props.match.params.artistId)
-
     }
     
     returnCopy(portfolioProps) {

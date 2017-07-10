@@ -1,16 +1,23 @@
 import {Effect, Actions} from 'jumpstate';
 import axios from 'axios';
 
-export default Effect('getReleases', () => {
-    Actions.releasesLoading(true);
-    axios.get()
+import '../artist-releases.js';
+
+export default Effect('getReleases', (artistUrl) => {
+    Actions.releasesLoading(true);   
+    
+    axios.get(`${artistUrl}?year,desc`)
         .then(res => {
+            
             return res.data
+
         })
         .then(returnedData => {
+            
             Actions.addArtistReleases(returnedData)
+
         })
         .catch(error => {
-            Actions.artistReleaseFetchError(error);
+            Actions.releasesFetchError(error);
         })
 })

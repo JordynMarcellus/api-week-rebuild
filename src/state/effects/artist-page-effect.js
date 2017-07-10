@@ -1,5 +1,5 @@
 import { Effect, Actions } from 'jumpstate';
-import './artist-releases-effectç'
+import './artist-releases-effect'
 import axios from 'axios';
 
 export default Effect('getBandInfo', (payload) => {
@@ -9,7 +9,11 @@ export default Effect('getBandInfo', (payload) => {
     axios.get(`https://api.discogs.com/artists/${payload}`)
         .then( res => {
             return res.data
-        }).then()
+        })
+        .then(returnedData => {
+            Actions.getReleases(returnedData.releases_url)
+            return returnedData
+        })
         .then( returnedData => {
             Actions.addArtistData(returnedData)
         })

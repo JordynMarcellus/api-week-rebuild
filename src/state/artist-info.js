@@ -10,7 +10,7 @@ export default State({
         error: false
     },
     addArtistData(state, searchResponse) {
-        console.log(searchResponse)
+
         return Object.assign({}, state, {
             // will that even work???
             // it did :3
