@@ -12,7 +12,6 @@ export default State({
             releaseData: releaseResponse.releases,
             loading: false
         })
-
     },
     
     releasesLoading(state, loadingStatus) { 
@@ -20,7 +19,7 @@ export default State({
             loading: loadingStatus
         })
     },
-
+    
     releasesFetchError(state, error) {
         return Object.assign({}, state, {
             error: error

@@ -8,9 +8,9 @@ class ErrorPage extends PureComponent {
         return(
             <div className="error-page" >
                 <div className="error-page__wrapper">
-                    <span className=" error-page__emoji  " role="img"> 👻 </span>
-                        <h1> Oops! Looks like I goofed it.</h1>
-                        <Link to="/"> Let's go back, shall we? </Link>
+                    <span className=" error-page__emoji" aria-label="ghost emoji, indicating that there's an error page" role="img"> 👻 </span>
+                        <h1> Oops! Goofed it.</h1>
+                        <Link to="/"> Let's go back!</Link>
 		        </div>
             </div>
         )

@@ -7,3 +7,26 @@
 
 .loading-icon > .svg-loader
     width: 25rem
+
+.loading-icon__outer-ring
+    animation:  0.8s linear infinite spinRing
+    transform-origin: 40px 40px
+    fill: #72afd3
+
+.loading-icon__inner-ring
+    animation: 0.6s linear infinite spinRing
+    transform-origin: 40px 40px
+    fill: #37ecba     
+
+@keyframes spinRing {
+    
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform:rotate(360deg)
+    }
+
+}
+

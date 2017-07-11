@@ -37,7 +37,11 @@ class ArtistPage extends Component {
                 <h1>{this.props.artistData.artistName}</h1>
                      
                     <aside className="artist-portfolio collapsed-portfolio"> 
-                    {
+                    
+                    {/* 
+                        we're going to build out the ArtistRelease component as part of the ecobee paired programming test!  */ 
+                    console.log(this.props.releaseData) }
+                    {/* we want this to be in a collapsable panel! */
                         this.props.artistData.artistData.profile === "" ? <p>no profile</p> : <p dangerouslySetInnerHTML={{ __html: this.returnCopy(this.props.artistData.artistData.profile)}}></p>
                     } 
                     </aside>
